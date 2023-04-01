@@ -1,0 +1,45 @@
+import os
+print(logo)
+
+def calc(op,num1,num2):
+    if op=='+':
+        return num1+num2
+    elif op=='-':
+        return num1-num2
+    elif op=='*':
+        return num1*num2
+    elif op=='/':
+        return num1/num2
+    else:
+        print("invalid choise try again.")
+
+
+flag=True
+while flag:
+    f_num=float(input("What's the first number?:"))
+    print(operation)
+    op=input("Pick on operation: ")
+    l_num=float(input("What's the next number?: "))
+    total=calc(op,f_num,l_num)
+    print(f"{f_num} + {l_num} = {total}")
+    choise=input(f"Type 'y' to continue calculating with {total}, or Type 'n' to start a new calculation, or if you want to quit Type 'q': ").lower()
+    if choise=='y':
+        flag2=True
+        temp=total
+        while flag2:
+            print(operation)
+            op=input("Pick on operation: ")
+            l_num=float(input("What's the next number?: "))
+            total=calc(op,temp,l_num)
+            print(f"{temp} {op} {l_num} = {total}")
+            choise=input(f"Type 'y' to continue calculating with {total}, or Type 'n' to start a new calculation, or if you want to quit Type 'q': ").lower()
+            if choise=='n':
+                flag2=False
+            else:
+                temp=total
+    if choise=='n':
+        os.system('cls')
+        print(logo)
+    else:
+        print("See ya")
+        flag=False
